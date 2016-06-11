@@ -1,0 +1,39 @@
+@charset "utf-8";
+/*CSS document*/
+
+.caja .cabecera{
+    background-color:#CCC; /*PODEMOS CAMBIAR DE FONDO*/
+   
+    margin-bottom: 5px; /**/
+    text-align: center; /*INDICA LA ALINEACIÓN DE TEXTO*/ 
+}
+
+.caja .menu {
+    background-color: #CCC;
+        padding: 5px; /**/
+        margin-bottom: 5px;
+}
+
+.caja .contenido{
+    width: 60%; /*coloca un ancho de 60% con respecto al tamaño de mi navegador*/
+    background-color: #CCC;
+    padding: 5px;
+    margin-bottom: 5px;
+    height: 4em; /*cada em = 12pts la letra*/
+    float: left; /*flota el objeto hacia la izquierda ya que el div lo hace en linea todos*/
+} 
+
+.caja .destacados{
+    background-color: #CCC;
+    float: right;
+    width: 34%;
+    padding: 5px;
+    margin-bottom: 5px;
+    height: 4em;
+}
+
+.caja .pie{
+    clear: both; /*Si no hago esto seguiremos eredando lo que tenga el ultimo objeto aplicado*/
+    background-color: #CCC;
+    padding: 5px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Structura div</title>
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+</head>
+
+<body>
+
+<div class="caja">
+    <div class="cabecera">
+        <p>Contenido de la cabecera</p>
+    </div>
+    
+    <div class="menu">
+        Menu de navegación
+    </div>
+    
+    <div class="contenido">
+        <p>Contenido de la pagina</p>
+        <table>
+            <tr>
+                <td><label for="usuario">Usuario</label></td>
+                <td><input type="text" id="txtusr"  placeholder="Usuario" autofocus></td>
+            </tr>
+            
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password" id="txtpwd"></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="button" value="Aceptar" id="btnaceptar">
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="destacados">
+        area de destacado y relacionado
+    </div>
+    
+    <div class="pie">
+        pie de pagina
+    </div>
+</div>
+
+<script src="public/plugins/jquery-2.2.3.min.js"></script>    
+<script>
+    $(document).ready(function(){
+        $("#btnaceptar").click(function(e){
+            //alert("hola");
+            var usuario =$("#txtusr").val();
+            var pwd =$("#txtpwd").val();
+            alert(usuario+" "+pwd);
+        });
+    });
+</script>
+            
+</body>
+</html>

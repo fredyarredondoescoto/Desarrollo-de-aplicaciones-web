@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú</title>
+    <style type="text/css">
+        
+        ul{
+            list-style-type:none; /*indica formato se indican las viñetas*/
+            margin: 0px;
+            padding: 0px;
+            border-left-width: 1px;
+            border-left-style: none;
+            border-left-color: #CCC;
+            overflow:hidden; /*Es un scroll que nos permite desplazarnos haia abajo para ver el contenido*/
+        }
+        
+        li{
+            display: inline; /*como lo desplegara, en linea pondra los elementos uno enseguida de otro en horizaontal, por default lo hace hacia abajo*/
+        }
+        
+        a{
+            font-family: arial,Helvetica, Sans-serif;/*Si no encuentra uno se va con el otro*/
+            color: #000;
+            text-decoration: none; /*decoracipon de algun color*/
+            font-size: 0.9em;
+            display:block; /*La forma en como lo despliega, lo hace por bloques, segmento tras segmento*/
+            float: left;
+            padding: 6px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #CCC;
+            background-color: #eaeaea;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #CCC;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #CCC;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: #CCC;
+            
+        }
+        
+        a:hover{ /*encimado*/
+            color: #fff; /*Color de la letra*/
+            background-color: #666;
+        }
+        
+        .clear{
+            clear: both;/*Limpia las alineaciones*/
+        }
+        
+        #Box{ /*Hace referencia a un ID llamado BOX*/
+            width: 100;
+        }
+        
+        #Section1{
+            width: 70%;
+            float: left;
+            clear: left;
+            height: 100%;
+        }
+        
+        #Art1{
+            width: 100%;
+        }
+        
+        #Asd1{
+            padding: 0px;
+            width: 30%;
+            float: left;
+        }
+        
+        #Foot1{
+          clear: both;
+          border: 1px solid #CCC;
+        }
+        
+        section{ /*Indicamos una seccción*/
+            margin: 0 auto;
+            background-color: #eaeaea;
+            padding: 0px;
+        }
+        
+        aside{ /*Indica una sección*/
+            margin: 0auto;
+            background-color: #eaeaea;
+            padding: 0px;
+        }
+        
+        footer{ /*insica una sección*/
+            margin: 0 auto;
+            background-color: #eaeaea;
+            padding 0 auto;
+        }
+    </style>
+</head>
+<body>
+   <nav> 
+    <h1>Discover</h1>
+     <ul id="Box">
+           <li><a href ="#" class="Welcome">Welcome</a></li>
+           <li><a href ="#" class="featured">Featured</a></li>
+           <li><a href ="#" class="people">People</a></li>
+           <li><a href ="#" class="music">Music</a></li>
+           <li><a href ="#" class="mixes">Mixes</a></li>
+           <li><a href ="#" class="videos">Videos</a></li>
+           <li><a href ="#" class="radio">Radio</a></li>
+           
+    </ul>
+   </nav>
+    
+</body>
+</html>
