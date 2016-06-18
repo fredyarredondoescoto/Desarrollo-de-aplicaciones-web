@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.caja .menu ul{
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    border-left-width: 150px;
+    border-left-color: black;
+    border-left-style: none;    
+    overflow: hidden;
+}
+
+.caja .menu li{
+    display: inline;
+}
+
+.caja .menu a{
+    font-family: arial,Helvetica, Sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 6px;
+    display: block;
+    float:right; 
+    border: 1px;
+    border-style: solid;
+    border-color: #FAAC58;
+    background-color: #FAAC58;
+}
+
+.caja .menu a:hover{ /*encimado*/
+    color: #fff; /*Color de la letra*/
+    background-color: #666;
+}
+        
+.clear{
+    clear: both;/*Limpia las alineaciones*/
+}
+        
+        
