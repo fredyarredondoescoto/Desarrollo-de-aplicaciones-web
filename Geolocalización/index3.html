@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio GPS</title>
+        <meta charset="utf-8">
+        <style type="text/css">
+                body {
+                    background: white;
+                    color: rgb(68, 59, 59);
+                    text-align: center;
+                }
+                h1 {
+                    text-align: center;  font-family: sans-serif;  font-size: 50px;  font-weight: bolder;
+                }
+                ul{
+                    width: 100%;
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    text-align: center;
+                }
+                ul li {
+                    font-size: 17px;
+                    font-family: monospace;
+                    font-weight: 800;
+                    margin: 50px;
+                }
+                button
+                {
+                    display: block;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    padding: 10px 15px;
+                    margin: 20px auto;
+                    color: rgb(204, 204, 204);
+                    background-color: rgb(44, 62, 80);
+                    background: -webkit-linear-gradient(rgb(136, 136, 136), rgb(85, 85, 85));
+                    background: linear-gradient(rgb(102, 131, 168), rgb(44, 62, 80));
+                    border: 0 none;
+                    border-radius: 3px;
+                    text-shadow: 0 -1px 0 rgb(73, 68, 68);
+                    box-shadow: 0 1px 0 rgb(102, 102, 102), 0 5px 0 rgb(52, 58, 66), 0 6px 6px rgba(0, 0, 0, 0.6);
+                    cursor: pointer;
+                    -webkit-transition: all 150ms ease;
+                    transition: all 150ms ease;
+                }
+                button:active
+                {
+                    color: rgb(204, 204, 204);
+                    box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
+                    -webkit-transform: translateY(3px);
+                    transform: translateY(3px);
+                }
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).on('ready',function(){
+                
+               $('#mostrar').on('click',function(){
+                    var options = {
+                        timeout: 6000,
+                        enableHighAccuracy: true
+                    }
+                    navigator.geolocation.getCurrentPosition(exito, error, options);
+               });
+               function exito(position){
+                    $('.longitude').text(position.coords.longitude);
+                    $('.latitude').text(position.coords.latitude);
+                    $('.altitude').text(position.coords.altitude);
+                    $('.accuracy').text(position.coords.accuracy);
+                    $('.speed').text(position.coords.speed);
+               }
+               function error(error){
+                    alert('No se puede conectar!!!');
+               }
+            });
+        </script>        
+    </head>
+    <body>
+        <h1>¿Dónde estoy?</h1>
+        <ul>
+            <li>Logitud:<span class="longitude"></span></li>
+            <li>Latitud:<span class="latitude"></span></li>
+            <li>Altitude:<span class="altitude"></span></li>
+            <li>Presición:<span class="accuracy"></span></li>
+            <li>Velocidad:<span class="speed"></span></li>
+        </ul>    
+        <button id="mostrar">Mostrar Posicion</button>
+        
+    </body>
+</html>
