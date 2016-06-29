@@ -1,9 +1,17 @@
-<?php
-if(isset($_POST['txtusr']) && isset($_POST['txtpwd']))
-	if($_POST['txtusr']=="Alfredo" && $_POST['txtpwd']=="AkatsukiItachi.1991")
-	{
-		echo "bienvenido";
-	}
+<?php 
+include_once "control/usuarios.php";
+$clsUsuarios = new usuarios();
+
+if(isset($_POST['txtusr']) && isset($_POST['txtpwd'])){
+	$currUserVO= $clsUsuarios->getByUserPass($_POST['txtusr'],$_POST['txtpwd']);
+	if(sizeof($currUserVO) > 0) {
+		foreach ($currUserVO as $UserVO) {
+    		echo "Bienvenido ". $UserVO->getUsername();
+		}
+    }
 	else{
-		echo "usuario incorrecto";
+			echo "El usuario ".$_POST['txtusr']. " es incorrecto";
 	}
+}
+
+

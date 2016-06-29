@@ -1,0 +1,30 @@
+body{
+    font-family: 'Droid Sans', 'Helvatica', sans-serif;
+}
+
+#latlng{
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+}
+
+.geolocalizacion{
+    clear: both;
+    color: #444;
+    text-align: center;
+}
+
+#map{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 500px;
+    padding: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
