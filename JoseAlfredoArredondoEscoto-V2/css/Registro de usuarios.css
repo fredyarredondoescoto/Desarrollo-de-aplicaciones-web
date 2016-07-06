@@ -1,0 +1,32 @@
+@chartset "UTF-8";
+
+#btndelate{
+    margin-top: 3px;
+    float: right;
+    background: #FAAC58;
+    font-family: sans-serif;
+    color: #fff;
+    border-style: none;
+    font-size: 0.9em;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+}
+
+#tablaU{
+    border-style: solid;
+    border-color: #FAAC58;
+    margin-top: 5em;
+    padding: 5px;
+    float: left;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+}
+
