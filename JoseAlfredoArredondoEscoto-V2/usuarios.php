@@ -21,7 +21,7 @@
                     <table >
                         <tr>
                             <td><input type="text" id="txtusr" name="txtusr" placeholder="Usuario" autofocus></td>
-                            <td><input type="password" id="txtpwd" name="txtpwd"></td>
+                            <td><input type="password" id="txtpwd" placeholder="* * * * * *" name="txtpwd"></td>
                             <td><input type="submit" name="g" value="Aceptar" id="btn"></td>
                         </tr>
                     </table>
@@ -60,7 +60,7 @@
            
             <div class="UsuarioNuevo">
                 <form id="formulario3" action="#" method="POST" >
-                   <h2>Nuevo usuario</h2>
+                   <h2 style="color: #fff;">Nuevo usuario</h2>
                     <table id="NewUser">
                         <tr>
                             <td>Usuario:</td>
@@ -85,6 +85,7 @@
                     $tblusuarios = "<table id='listausuarios'";
                     $tblusuarios = $tblusuarios."<thead>";
                     $tblusuarios = $tblusuarios."<tr>";
+                    $tblusuarios = $tblusuarios."<th></th>";
                     $tblusuarios = $tblusuarios."<th>ID</th>";
                     $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USUARIO</th>";
                     $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTUALIZAR&nbsp;&nbsp;</th>";
@@ -97,10 +98,10 @@
                     if(sizeof($dsUsers) > 0){
                         foreach ($dsUsers as $usuario){
                             $tblusuarios = $tblusuarios."<tr>";
-                            
-                            $tblusuarios = $tblusuarios."<td><br>"."<input type='checkbox' name='seleccionar' id='id".$usuario->getId()."'>".$usuario->getId()."</br></td>";
+                            $tblusuarios = $tblusuarios."<td><br>"."<input type='checkbox' name='seleccionar' id='".$usuario->getId()."'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br></td>";
+                            $tblusuarios = $tblusuarios."<td><br>".$usuario->getId()."</br></td>";
                             $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$usuario->getUsername()."</br></td>";
-                            $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type='submit' id='actualizar'><img src='ico/refresh-button.png' alt='Refresh''/></button>"."</br></td>";
+                            $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type='button' id='rfs".$usuario->getId()."'><img src='ico/refresh-button.png' alt='Refresh''/></button>"."</br></td>";
                             $tblusuarios = $tblusuarios."</tr>";
                         }
                     } else {
@@ -170,9 +171,17 @@ $(document).ready(function(){
 			}
           }
      });
-	});
-
+	}); 
+    
+    $("#btndelate").click(function (event) {
+    $("input:checkbox:checked").each(function() {
+            alert("El checkbox con valor " + $(this).attr("id"));
+            }
+        );
+    });
+    
 });
+    
 </script>
     
 </body>
