@@ -1,27 +1,34 @@
 @chartset "UTF-8";
 
-#btndelate{
-    margin-top: 3px;
-    float: right;
+.UsuarioNuevo{
+    margin: 0px;
+    background: #C3C3C3; 
+    padding: 5px;
+    margin-bottom: 2em;
+    /*para Firefox*/
+    -moz-border-radius: 11px 11px 0px 0px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 11px 11px 0px 0px;
+    /* para Opera */
+    border-radius: 11px 11px 0px 0px;
+}
+
+#NewUser{
+    margin-bottom: 1em;
+}
+
+#tablaU{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#btnconfirmar{
     background: #FAAC58;
     font-family: sans-serif;
     color: #fff;
     border-style: none;
-    font-size: 0.9em;
-    /*para Firefox*/
-    -moz-border-radius: 15px 15px 15px 15px;
-    /*para Safari y Chrome*/
-    -webkit-border-radius: 15px 15px 15px 15px;
-    /* para Opera */
-    border-radius: 15px 15px 15px 15px;
-}
-
-#tablaU{
-    border-style: solid;
-    border-color: #FAAC58;
-    margin-top: 5em;
+    font-size: 1em;
     padding: 5px;
-    float: left;
     /*para Firefox*/
     -moz-border-radius: 15px 15px 15px 15px;
     /*para Safari y Chrome*/
@@ -30,3 +37,27 @@
     border-radius: 15px 15px 15px 15px;
 }
 
+#btndelate{
+    background: #FAAC58;
+    font-family: sans-serif;
+    color: #fff;
+    border-style: none;
+    font-size: 1em;
+    padding: 5px;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+}
+
+#listausuarios{    
+    margin: auto;
+    text-align: center;
+}
+
+#actualizar{
+    border-style: none;
+    background-color: #E6E6E6;
+}

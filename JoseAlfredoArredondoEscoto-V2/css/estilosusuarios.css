@@ -1,0 +1,120 @@
+@chartset "UTF-8";
+
+body{
+    background:#E6E6E6;     
+}
+
+.caja{
+    background-color: #E6E6E6;
+}
+
+#login{
+    float: right;
+    padding-top: 30px;
+}
+
+.caja .encabezado{
+    font-family: sans-serif;
+    margin-bottom:0px;
+    padding: 9px 9px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    text-align: left;
+    font-size: 1.2em;
+    color: white;
+    background: #C3C3C3;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+}
+
+
+.caja .contenedor{
+    background: #E6E6E6;
+}
+
+.caja .menu{
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+    background: #FAAC58;
+    padding: 1px;
+    margin-bottom: 15px;
+}
+
+.caja .contenido{
+    font-family: sans-serif;
+    width: 60%;
+    margin-bottom: 15px;
+    float: left;
+    border-style: solid;
+    border-color: #FAAC58;
+    margin-bottom: 15px;
+    padding: 0;
+    align-items: center;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+      
+}
+
+.caja .destacados{
+    font-family: sans-serif;
+    font-size: 1.2em;
+    width: 34%;
+    color: #444;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    float: right;
+    height: auto;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.caja .pie{
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+    
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color: white;
+    clear: both;
+    background: #FAAC58;
+    padding-top:5px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+#btn{
+    background: #FAAC58;
+    font-family: sans-serif;
+    color: #fff;
+    border-style: none;
+    font-size: 0.9em;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+}
+
+#pinfo a{
+    text-decoration: none;
+    color: #fff;
+}

@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="css/Slider.css">
     <link rel="stylesheet" type="text/css" href="css/Galeria.css">
     <link rel="stylesheet" type="text/css" href="css/mapa.css">
-    <link rel="stylesheet" type="text/css" href="css/Registro%20de%20usuarios.css">
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="plugins/gmaps.js"></script>
     <script type="text/javascript" src="plugins/zepto.min.js"></script>
@@ -96,13 +95,9 @@
           <div class="menu">
              <nav>
                 <ul id="Box">
-                 <li> <a href="#" class="Welcome">Welcome</a></li>
-                 <li><a href="#" class="Featured">Featured</a></li>
-                 <li><a href ="#" class="people">People</a></li>
-                 <li><a href ="#" class="music">Music</a></li>
-                 <li><a href ="#" class="mixes">Mixes</a></li>
-                 <li><a href ="#" class="videos">Videos</a></li>
-                 <li><a href ="#" class="radio">Radio</a></li>
+                 <li><a href ="usuarios.php" target="_self" class="Usuarios">Usuarios</a></li>
+                 <li><a href="http://fredyarredondoescoto.blogspot.mx/" target="_blank" class="Blog">Blog</a></li>
+                 <li> <a href="index.html" target="_self" class="Home">Home</a></li>
                  </ul>
              </nav>
               
@@ -295,7 +290,7 @@
           </div>
           
           <div class="destacados">
-             <!-- <table>
+             <table>
                 <tr>
                     <td>
                         <img src="img/fredy_1.jpg" alt="FREDY">
@@ -306,54 +301,14 @@
                     <td>Esta página es administrada por José Alfredo Arredondo Escoto, estudiante de TIC del grupo 3B
                     de la Universidad Tecnológica del Suroeste de Guanajuato.</td>
                 </tr>
-            </table> -->  
-            
-            <article id="tablaU">
-               <h3>Usuarios registrados en la BD</h3>
-                <?php
-                    require_once 'control/usuarios.php';
-                    $clsusuarios = new usuarios();
-                    $dsUsers = $clsusuarios->getUsers();
-                    $tblusuarios = "<table id='listausuarios'";
-                    $tblusuarios = $tblusuarios."<thead>";
-                    $tblusuarios = $tblusuarios."<tr>";
-                    $tblusuarios = $tblusuarios."<th>ID</th>";
-                    $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USUARIO</th>";
-                    $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTUALIZAR&nbsp;&nbsp;</th>";
-                    $tblusuarios = $tblusuarios."</tr>";
-                
-                    $tblusuarios = $tblusuarios."</thead>";
-                    $tblusuarios = $tblusuarios."<tbody>";
-                    $tblusuarios = $tblusuarios."<input type='submit' id='btndelate' value='Eliminar'>";   
-                
-                    if(sizeof($dsUsers) > 0){
-                        foreach ($dsUsers as $usuario){
-                            $tblusuarios = $tblusuarios."<tr>";
-                            
-                            $tblusuarios = $tblusuarios."<td>"."<input type='checkbox' id='usrcheck'>".$usuario->getId()."</td>";
-                            $tblusuarios = $tblusuarios."<td>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$usuario->getUsername()."</td>";
-                            $tblusuarios = $tblusuarios."<td>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='checkbox' id='actcheck'>"."</td>";
-                            $tblusuarios = $tblusuarios."</tr>";
-                        }
-                    } else {
-                        $tblusuarios = $tblusuarios."<tr>";
-                        $tblusuarios = $tblusuarios."<td>No existen usuarios</td>";
-                        $tblusuarios = $tblusuarios."</tr>";
-                    }
-                $tblusuarios = $tblusuarios."</tbody>";
-                $tblusuarios = $tblusuarios."</table>";
-                echo $tblusuarios;
-                ?>
-            </article>                    
-            
-            
+            </table>  
             
           </div>
           
-          <div class="geoloc">
+          <!--<div class="geoloc">
              <h1>Geolocalización</h1>
               <div id="map">mapa</div>
-          </div>
+          </div>-->
           
           <div class="pie">
               <h3>Información de contacto:</h3>
