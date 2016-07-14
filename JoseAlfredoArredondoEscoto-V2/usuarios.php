@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Practica de márgenes</title>
+    <title>Registro de Usuarios</title>
     <link rel="stylesheet"  type="text/css" href="css/estilosusuarios.css">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link rel="stylesheet" type="text/css" href="css/Slider.css">
@@ -32,17 +32,8 @@
     </div>
          
     <div class="contenedor">
-       
-        <div class="slider">
-           <ul>
-               <li><img src="img/img1.jpg" alt="img1"></li>
-               <li><img src="img/img2.jpg" alt="img2"></li>
-               <li><img src="img/img3.jpg" alt="img3"></li>
-               <li><img src="img/img4.jpg" alt="img4"></li>
-               <li><img src="img/img5.jpg" alt="img5"></li>
-
-           </ul>
-        </div>
+       <h1 style="text-align:center; font-family: sans-serif;">PRACTICA INSERTA NUEVO REGISTRO, ELIMINAR REGISTRO Y ACTUALIZAR REGISTRO</h1>
+  
     </div>
        
           <div class="menu">
@@ -89,7 +80,7 @@
                     $tblusuarios = $tblusuarios."<th>ID</th>";
                     $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USUARIO</th>";
                     $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTUALIZAR&nbsp;&nbsp;</th>";
-                    $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' id='btndelate' value='Eliminar'></th>";
+                    $tblusuarios = $tblusuarios."<th><button id='btnBorrar'>Eliminar</button></th>";
                     $tblusuarios = $tblusuarios."</tr>";
                     $tblusuarios = $tblusuarios."</thead>";
                 
@@ -113,8 +104,11 @@
                 
                 $tblusuarios = $tblusuarios."</tbody>";
                 $tblusuarios = $tblusuarios."</table>";
+                  
                 echo $tblusuarios;
+                  
                 ?>
+               
             </article>                           
                 
           </div>
@@ -173,12 +167,37 @@ $(document).ready(function(){
      });
 	}); 
     
-    $("#btndelate").click(function (event) {
+    /*$("#btnBorrar").click(function (event) {
     $("input:checkbox:checked").each(function() {
             alert("El checkbox con valor " + $(this).attr("id"));
             }
         );
-    });
+    });*/
+    
+    $("#btnBorrar").click(function (event) {
+		$("input:checkbox[name=seleccionar]:checked").each(function() {
+          var parametros = {
+          		"ID": $(this).attr("id")
+		  	  };
+			
+		    $.ajax({
+	        url: "borrar.php", 
+            type: "POST",
+          //datos del formulario
+            data: parametros,
+          //una vez finalizado correctamente
+               success: function (response) {
+                location.reload();
+		      },
+                error: function (response) {
+                alert(response);
+		      },
+		  });
+
+    	});
+		//window.location.href = path + 'xls/articulosCica2016.xlsx';
+     });
+
     
 });
     
