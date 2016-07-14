@@ -32,6 +32,7 @@
     </div>
          
     <div class="contenedor">
+       
        <h1 style="text-align:center; font-family: sans-serif;">PRACTICA INSERTA NUEVO REGISTRO, ELIMINAR REGISTRO Y ACTUALIZAR REGISTRO</h1>
   
     </div>
@@ -195,6 +196,7 @@ $(document).ready(function(){
 		  });
 
     	});
+        $("input:checkbox").prop('checked', false);
 		//window.location.href = path + 'xls/articulosCica2016.xlsx';
      });
 
