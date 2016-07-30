@@ -1,6 +1,6 @@
 <?php    
 	define("DB_TYPE", "mysql");
     define("DB_HOST", "localhost");
-    define("DB_NAME", "ticbgnco_Alfredoappweb");
-    define("DB_USER", "ticbgnco_fredy");
-    define("DB_PASS", "AkatsukiItachi.1991"); 
+    define("DB_NAME", "appweb");
+    define("DB_USER", "root");
+    define("DB_PASS", ""); 

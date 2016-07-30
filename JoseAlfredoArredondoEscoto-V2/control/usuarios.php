@@ -40,33 +40,32 @@ class usuarios {
     
     // Retrieves all users currently in the database.
     public function getByUserPass($usuario,$pass) {
-        $sql = "SELECT * FROM tblusuarios WHERE usrnombre='".$usuario."' AND usrpass='".md5($pass)."'";
+        $sql = "SELECT * FROM tblusuarios WHERE usrnombre='".$usuario."' AND usrpass='".MD5($pass)."'";
         return $this->execute($sql);
     }
 	  
     //Saves the supplied user to the database.
     public function save($userVO) {
         $affectedRows = 0;
-        
+        $currUserVO=null;
         if($userVO->getId() != "") {
-            $currUserVO = $this->getByUserId($userVO->getId());
+			$currUserVO = $this->getByUserId($userVO->getId());
         }
         // If the query returned a row then update,
         // otherwise insert a new user.
         if(sizeof($currUserVO) > 0) {
-            $sql = "UPDATE users SET ".
-                "username='".$userVO->getUsername()."', ".
-                "password='".$userVO->getPassword()."' ".
-                "WHERE id=".$userVO->getId();
+            $sql = "UPDATE tblusuarios SET ".
+                "usrNombre='".$userVO->getUsername()."', ".
+                "usrpass='".$userVO->getPassword()."' ".
+                "WHERE usrid=".$userVO->getId();
             
             mysql_query($sql, $this->connect) or die(mysql_error());
             $affectedRows = mysql_affected_rows();
         }
         else {
-            $sql = "INSERT INTO users (username, password) VALUES('".
-                $userVO->getUsername()."', ".
-                $userVO->getPassword()."')".
-            
+            $sql = "INSERT INTO tblusuarios (usrNombre, usrpass) VALUES('".
+                $userVO->getUsername()."', '".
+                MD5($userVO->getPassword())."')";
             mysql_query($sql, $this->connect) or die(mysql_error());
             $affectedRows = mysql_affected_rows();
         }

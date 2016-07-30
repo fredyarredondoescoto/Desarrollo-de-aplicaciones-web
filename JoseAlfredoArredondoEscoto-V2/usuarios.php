@@ -49,19 +49,29 @@
           </div>
           
           <div class="contenido">
-           
-            <div class="UsuarioNuevo">
-                <form id="formulario3" action="#" method="POST" >
+
+<!--.........................................................................................................................................-->           
+            <div id="UsuarioNuevo">
+                <form id="formulario3" action="agregar.php" method="POST" >
                    <h2 style="color: #fff;">Nuevo usuario</h2>
                     <table id="NewUser">
                         <tr>
+                            <td>Id:</td>
+                            <td><input type="text" id="txtnid" readonly="readonly" name="txtnid" placeholder="ID"></td>
+                        </tr>
+                        <tr>
                             <td>Usuario:</td>
                             <td><input type="text" id="txtnusr" name="txtnusr" placeholder="Usuario" autofocus></td>
-                            <td>&nbsp;&nbsp;&nbsp;<input type="submit" name="g" value="Confirmar" id="btnconfirmar"></td>
+                            <td>&nbsp;&nbsp;&nbsp;<input type="submit" name="g" value="Agregar" id="btnconfirmar"></td>
+                            <td>&nbsp;&nbsp;&nbsp;<input type="button" name="h" value="Nuevo" id="btnnuevo"></td>
                         </tr>
                         <tr>
                             <td>Password:</td>
                             <td><input type="password" id="txtnpwd" name="txtnpwd" placeholder="*******"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Confirmar Password :</label></td>
+                            <td><input type="password" id="txtconf_pwdusr" name="txtconf_pwdusr" placeholder="Verificar Password"></td>			
                         </tr>
                     </table>
                 </form>
@@ -93,7 +103,7 @@
                             $tblusuarios = $tblusuarios."<td><br>"."<input type='checkbox' name='seleccionar' id='".$usuario->getId()."'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br></td>";
                             $tblusuarios = $tblusuarios."<td><br>".$usuario->getId()."</br></td>";
                             $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$usuario->getUsername()."</br></td>";
-                            $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type='button' id='rfs".$usuario->getId()."'><img src='ico/refresh-button.png' alt='Refresh''/></button>"."</br></td>";
+                            $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type='button' id='btnrfs'><img src='ico/refresh-button.png' alt='Refresh''/></button>"."</br></td>";
                             $tblusuarios = $tblusuarios."</tr>";
                         }
                     } else {
@@ -168,13 +178,29 @@ $(document).ready(function(){
      });
 	}); 
     
-    /*$("#btnBorrar").click(function (event) {
-    $("input:checkbox:checked").each(function() {
-            alert("El checkbox con valor " + $(this).attr("id"));
-            }
-        );
-    });*/
+    //AGREGAR NUEVO USUARIO.............................................................................................................
+    $("#UsuarioNuevo").find("form").on("submit", function (event) {
+     event.preventDefault();
+		if($('#txtnpwd').val()==$("#txtconf_pwdusr").val()){
+			$.ajax({
+			  url: "agregar.php", 
+			  type: "POST",
+			  //datos del formulario
+			  data: $(this).serialize(),
+			  //una vez finalizado correctamente
+			  success: function (response) {
+				  location.reload();
+			  },
+			  error: function (response) {
+				   alert(response);
+			  },
+		   });
+         }else{
+			alert('Error password incorrecto'); 	
+		 }
+	});
     
+    //BORRAR USUARIO...........................................................................................................................
     $("#btnBorrar").click(function (event) {
 		$("input:checkbox[name=seleccionar]:checked").each(function() {
           var parametros = {
@@ -199,8 +225,49 @@ $(document).ready(function(){
         $("input:checkbox").prop('checked', false);
 		//window.location.href = path + 'xls/articulosCica2016.xlsx';
      });
-
     
+        
+    /*$("#btnBorrar").click(function (event) {
+    $("input:checkbox:checked").each(function() {
+            alert("El checkbox con valor " + $(this).attr("id"));
+            }
+        );
+    });*/
+    //LIMPIA LAS CAJAS DE TEXTO................................................................................................................
+    $("#btnnuevo").click(function(event){
+        $('#txtnusr').val('');
+        $('#txtnpwd').val('');
+        $('#txtnid').val('');
+        $('#txtconf_pwdusr').val('');
+        
+    });
+    
+    //ACTUALIZAR...............................................................................................................................
+   /*$("#btnrfs").click(function (event) {
+		$("input:checkbox[name=seleccionar]:checked").each(function() {
+            var parametros = {
+          		"ID": $(this).attr("id")
+		  	  };
+            
+            $('#txtnid').val($(this).attr("id"));
+			
+		   $.ajax({
+	        url: "Actualizar.php", 
+            type: "POST",
+          //datos del formulario
+            data: parametros,
+          //una vez finalizado correctamente
+               success: function (response) {
+                alert(response);
+                location.reload();
+		      }
+		  });
+
+    	});
+        $("input:checkbox").prop('checked', false);
+		//window.location.href = path + 'xls/articulosCica2016.xlsx';
+     });*/
+    //.........................................................................................................................................
 });
     
 </script>
