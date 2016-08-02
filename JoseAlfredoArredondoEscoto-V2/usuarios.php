@@ -77,9 +77,10 @@
                 </form>
             </div>
 <!--.........................................................................................................................................-->
-             
+            
               <article id="tablaU">
                <h1>USUARIOS REGISTRADOS EN LA BD</h1>
+               <div id="tabla"> 
                 <?php
                     require_once 'control/usuarios.php';
                     $clsusuarios = new usuarios();
@@ -94,7 +95,7 @@
                     $tblusuarios = $tblusuarios."<th><button id='btnBorrar'>Eliminar</button></th>";
                     $tblusuarios = $tblusuarios."</tr>";
                     $tblusuarios = $tblusuarios."</thead>";
-                
+                    
                     $tblusuarios = $tblusuarios."<tbody>";
                     
                     if(sizeof($dsUsers) > 0){
@@ -103,7 +104,7 @@
                             $tblusuarios = $tblusuarios."<td><br>"."<input type='checkbox' name='seleccionar' id='".$usuario->getId()."'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br></td>";
                             $tblusuarios = $tblusuarios."<td><br>".$usuario->getId()."</br></td>";
                             $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$usuario->getUsername()."</br></td>";
-                            $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type='button' id='btnrfs'><img src='ico/refresh-button.png' alt='Refresh''/></button>"."</br></td>";
+                            $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type='button' class='btnrfs'><img src='ico/refresh-button.png' alt='Refresh''/></button>"."</br></td>";
                             $tblusuarios = $tblusuarios."</tr>";
                         }
                     } else {
@@ -119,8 +120,9 @@
                 echo $tblusuarios;
                   
                 ?>
-               
-            </article>                           
+              </div> 
+            </article> 
+                                         
                 
           </div>
           
@@ -160,6 +162,7 @@
 <script src="plugins/jquery-2.1.4.min.js"></script>
 <script>
 $(document).ready(function(){
+    //LOGIN............................................................................................................................
 	// this is the id of the form
 	$("#login").find("form").on("submit", function (event) {
      event.preventDefault();
@@ -181,7 +184,29 @@ $(document).ready(function(){
     //AGREGAR NUEVO USUARIO.............................................................................................................
     $("#UsuarioNuevo").find("form").on("submit", function (event) {
      event.preventDefault();
-		if($('#txtnpwd').val()==$("#txtconf_pwdusr").val()){
+        if($('#txtnid').val() != ''){
+            
+            if($('#txtnpwd').val()==$("#txtconf_pwdusr").val()){
+			$.ajax({
+			  url: "actualizar.php", 
+			  type: "POST",
+			  //datos del formulario
+			  data: $(this).serialize(),
+			  //una vez finalizado correctamente
+			  success: function (response) {
+				  location.reload();
+			  },
+			  error: function (response) {
+				   alert(response);
+			  },
+		   });
+         }else{
+			alert('Error password incorrecto'); 	
+		 }
+            
+        }else{
+            
+            if($('#txtnpwd').val()==$("#txtconf_pwdusr").val()){
 			$.ajax({
 			  url: "agregar.php", 
 			  type: "POST",
@@ -198,6 +223,9 @@ $(document).ready(function(){
          }else{
 			alert('Error password incorrecto'); 	
 		 }
+            
+        }
+        
 	});
     
     //BORRAR USUARIO...........................................................................................................................
@@ -243,7 +271,7 @@ $(document).ready(function(){
     });
     
     //ACTUALIZAR...............................................................................................................................
-   /*$("#btnrfs").click(function (event) {
+   $(".btnrfs").click(function (event) {
 		$("input:checkbox[name=seleccionar]:checked").each(function() {
             var parametros = {
           		"ID": $(this).attr("id")
@@ -251,22 +279,35 @@ $(document).ready(function(){
             
             $('#txtnid').val($(this).attr("id"));
 			
+            //OBTENEMOS EL NOMBRE USUARIO SELECCIONADO
 		   $.ajax({
-	        url: "Actualizar.php", 
+	        url: "obtenerusr.php", 
             type: "POST",
           //datos del formulario
             data: parametros,
           //una vez finalizado correctamente
                success: function (response) {
-                alert(response);
-                location.reload();
+                $('#txtnusr').val(response);
 		      }
 		  });
+            
+            //OBTENEMOS LA CONTRASEÑA DEL USUARIO SELECCIONADO
+           $.ajax({
+	        url: "obtenerpass.php", 
+            type: "POST",
+          //datos del formulario
+            data: parametros,
+          //una vez finalizado correctamente
+               success: function (response) {
+                $('#txtnpwd').val(response);
+                $('#txtconf_pwdusr').val(response);
+		      }
+		  });    
 
     	});
         $("input:checkbox").prop('checked', false);
 		//window.location.href = path + 'xls/articulosCica2016.xlsx';
-     });*/
+     });
     //.........................................................................................................................................
 });
     

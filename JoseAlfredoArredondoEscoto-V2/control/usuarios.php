@@ -56,7 +56,7 @@ class usuarios {
         if(sizeof($currUserVO) > 0) {
             $sql = "UPDATE tblusuarios SET ".
                 "usrNombre='".$userVO->getUsername()."', ".
-                "usrpass='".$userVO->getPassword()."' ".
+                "usrpass='".MD5($userVO->getPassword())."' ".
                 "WHERE usrid=".$userVO->getId();
             
             mysql_query($sql, $this->connect) or die(mysql_error());

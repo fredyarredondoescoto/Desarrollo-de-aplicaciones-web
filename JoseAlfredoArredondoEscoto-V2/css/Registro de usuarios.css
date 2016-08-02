@@ -13,6 +13,11 @@
     border-radius: 11px 11px 0px 0px;
 }
 
+#tabla{
+    height: 300px;
+    overflow-y: scroll;
+}
+
 #NewUser{
     margin-bottom: 1em;
 }
