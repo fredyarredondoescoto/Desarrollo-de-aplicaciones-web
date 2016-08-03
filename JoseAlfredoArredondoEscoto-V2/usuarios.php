@@ -58,12 +58,12 @@
                         <tr>
                             <td>Id:</td>
                             <td><input type="text" id="txtnid" readonly="readonly" name="txtnid" placeholder="ID"></td>
+                            <td>&nbsp;&nbsp;&nbsp;<input type="submit" name="g" value="Confirmar" id="btnconfirmar"></td>
+                            <td>&nbsp;&nbsp;&nbsp;<input type="button" name="h" value="Nuevo" id="btnnuevo"></td>
                         </tr>
                         <tr>
                             <td>Usuario:</td>
                             <td><input type="text" id="txtnusr" name="txtnusr" placeholder="Usuario" autofocus></td>
-                            <td>&nbsp;&nbsp;&nbsp;<input type="submit" name="g" value="Agregar" id="btnconfirmar"></td>
-                            <td>&nbsp;&nbsp;&nbsp;<input type="button" name="h" value="Nuevo" id="btnnuevo"></td>
                         </tr>
                         <tr>
                             <td>Password:</td>
@@ -80,23 +80,23 @@
             
               <article id="tablaU">
                <h1>USUARIOS REGISTRADOS EN LA BD</h1>
-               <div id="tabla"> 
+
                 <?php
                     require_once 'control/usuarios.php';
                     $clsusuarios = new usuarios();
                     $dsUsers = $clsusuarios->getUsers();                 
                     $tblusuarios = "<table id='listausuarios'";
-                    $tblusuarios = $tblusuarios."<thead>";
+                    $tblusuarios = $tblusuarios."<thead id='tencabezado'>";
                     $tblusuarios = $tblusuarios."<tr>";
                     $tblusuarios = $tblusuarios."<th></th>";
-                    $tblusuarios = $tblusuarios."<th>ID</th>";
+                    $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID</th>";
                     $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USUARIO</th>";
-                    $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTUALIZAR&nbsp;&nbsp;</th>";
-                    $tblusuarios = $tblusuarios."<th><button id='btnBorrar'>Eliminar</button></th>";
+                    $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTUALIZAR&nbsp;&nbsp;</th>";
+                    $tblusuarios = $tblusuarios."<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id='btnBorrar'>Eliminar</button></th>";
                     $tblusuarios = $tblusuarios."</tr>";
                     $tblusuarios = $tblusuarios."</thead>";
                     
-                    $tblusuarios = $tblusuarios."<tbody>";
+                    $tblusuarios = $tblusuarios."<tbody id='tcuerpo'>";
                     
                     if(sizeof($dsUsers) > 0){
                         foreach ($dsUsers as $usuario){
@@ -104,7 +104,7 @@
                             $tblusuarios = $tblusuarios."<td><br>"."<input type='checkbox' name='seleccionar' id='".$usuario->getId()."'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br></td>";
                             $tblusuarios = $tblusuarios."<td><br>".$usuario->getId()."</br></td>";
                             $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$usuario->getUsername()."</br></td>";
-                            $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type='button' class='btnrfs'><img src='ico/refresh-button.png' alt='Refresh''/></button>"."</br></td>";
+                            $tblusuarios = $tblusuarios."<td><br>"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type='button' class='btnrfs'><img src='ico/refresh-button.png' alt='Refresh''/></button>"."</br></td>";
                             $tblusuarios = $tblusuarios."</tr>";
                         }
                     } else {
@@ -120,7 +120,7 @@
                 echo $tblusuarios;
                   
                 ?>
-              </div> 
+                
             </article> 
                                          
                 
